@@ -1,0 +1,7 @@
+{
+  "name": "thumbnailer",
+  "private": true,
+  "workspaces": [
+    "apps/*"
+  ]
+}
