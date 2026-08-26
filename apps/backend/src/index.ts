@@ -1,15 +1,14 @@
 import { serve } from '@hono/node-server'
 import { Hono } from 'hono'
+import { ensureStorageDirs } from './lib/storage.js'
+import { uploadRoute } from './routes/upload.js'
+
+await ensureStorageDirs()
 
 const app = new Hono()
+app.get('/', (c) => c.text('Hello Hono!'))
+app.route('/', uploadRoute)
 
-app.get('/', (c) => {
-  return c.text('Hello Hono!')
-})
-
-serve({
-  fetch: app.fetch,
-  port: 3000
-}, (info) => {
+serve({ fetch: app.fetch, port: 3000 }, (info) => {
   console.log(`Server is running on http://localhost:${info.port}`)
 })
