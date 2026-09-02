@@ -12,6 +12,6 @@ jobsRoute.get('/jobs/:id', async (c) => {
     id: job.id,
     state,
     result: job.returnvalue,
-    faileReason: job.failedReason,
+    failedReason: job.failedReason,
   })
 })
