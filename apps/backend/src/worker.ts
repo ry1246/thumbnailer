@@ -15,7 +15,7 @@ const worker = new Worker<ThumbnailJobData>(
       .resize(200, 200, { fit: 'cover' })
       .toFile(thumbnailPath)
 
-    return { thumbnailPath }
+    return { thumbnailUrl: `/thumbnails/${fileName}` }
   },
   { connection }
 )
